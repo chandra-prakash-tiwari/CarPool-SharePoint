@@ -1,0 +1,59 @@
+﻿.dialog{
+    width:60%;
+    height:90%;
+    margin:auto;
+}
+
+.dialog .content{
+    display:flex;
+}
+
+.dialog .content .left{
+    width:50%;
+}
+
+.dialog .content .right{
+    width:50%
+}
+
+.dialog.content.via-point{
+    display:flex;
+}
+
+    .dialog .submit {
+        border-radius: 2rem;
+        background-color: #ac4fff;
+        color:white;
+        margin:0;
+        width: 7rem;
+        height: 3rem;
+        border: 0;
+    }
+
+    .dialog .ride-full-details {
+        width: 80%;
+        height: auto;
+        border: 3px solid black;
+        border-radius: 2rem;
+        overflow: auto;
+        padding: 1.5rem;
+        margin: auto;
+    }
+
+.dialog .ride-full-details .via-points{
+    display:flex;
+}
+
+.dialog .ride-full-details .via-points .left{
+    width:50%;
+}
+
+.dialog .close {
+    width: 2rem;
+    align-self: flex-end;
+    margin: 0.5rem;
+}
+
+    .dialog .close .icon {
+        font-size: 1.8rem;
+    }

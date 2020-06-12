@@ -1,0 +1,54 @@
+﻿button {
+    margin: 1rem 4rem;
+}
+
+.bookings {
+    width: 24rem;
+    padding: 1rem;
+}
+
+.booking-line {
+    display: flex;
+}
+
+    .booking-line .left {
+        width: 50%;
+        text-align: start;
+    }
+
+    .booking-line .right {
+        width: 50%;
+        text-align: start;
+    }
+
+.label {
+    color: #a3a1a3;
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+.bookingsearches .header p {
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #ac4fff;
+    margin-left: 1.3%
+}
+
+.bookingsearches .booking-search .no-offer {
+    font-size: 3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #ffac19;
+    margin: 20% auto;
+    display: table
+}
+
+.bookingsearches .booking-search .no-offer .content{
+    margin:auto;
+    display:table;
+}
+
+.bookingsearches .booking-search .bookings .head{
+    display:flex;
+}

@@ -1,0 +1,154 @@
+﻿.my-ride{
+    margin:1rem 4rem;
+}
+
+.rides{
+    width:24rem;
+    padding:1rem;
+}
+
+.ride-line{
+    display:flex;
+}
+
+.ride-line .left{
+    width:50%;
+    text-align:start;
+}
+
+.ride-line .right {
+    width: 50%;
+    text-align:start;
+}
+
+.label {
+    color: #a3a1a3;
+    font-size:11px;
+    font-weight:bolder;
+}
+
+.confirm-dialog{
+    height:auto;
+    width:auto;
+    border-radius:1rem;
+}
+
+.my-ride .head-card .header {
+    width: 12rem;
+    height: 2.7rem;
+    background-color: #ffac19;
+    color: white;
+    margin: auto 4rem;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+    text-align-last: center;
+}
+
+.my-ride .rides .head{
+    display:flex;
+}
+
+.my-ride .rides-cards .no-bookings {
+    font-size: 1.5rem;
+    margin: 25% auto;
+}
+
+.ride-dialog{
+    width:80%;
+    height:90%;
+    margin:auto;
+}
+
+.ride-dialog .ride-booking{
+    width:40%;
+    height:17rem;
+    margin:1.5rem 3rem;
+    padding:1rem;
+    border:2px solid black;
+    border-radius:1rem;
+    display:inline-grid;
+}
+
+.ride-dialog .ride-booking .confirm {
+    border-radius: 2rem;
+    background-color: #ac4fff;
+    margin: 1rem 0 0;
+    width: 6rem;
+    height: 2.5rem;
+    border: 0;
+}
+
+.ride-dialog .MuiDialog-paperFullScreen{
+    display:inline-block;
+}
+
+.ride-dialog .ride-booking .confirm:disabled,
+.ride-dialog .ride-booking .cancel:disabled {
+    display: none;
+}
+
+.ride-dialog .ride-booking .cancel {
+    border-radius: 2rem;
+    background-color: #ffac19;
+    margin: 1rem 2rem 0;
+    width: 6rem;
+    height: 2.5rem;
+    border: 0;
+}
+
+.ride-dialog .close {
+    width: 2rem;
+    align-self: flex-end;
+}
+
+.ride-dialog .close .icon {
+    font-size: 1.8rem;
+}
+
+.ride-dialog .ride-booking .head {
+    display: flex;
+}
+
+    .ride-dialog .header {
+        height: 3rem;
+        text-align-last: end;
+        font-size: 1.4rem;
+        background-color: #ac4fff;
+        color:white;
+    }
+
+.ride-dialog .header button{
+    height:3rem;
+    margin:auto 0.5rem;
+    padding:0.5rem;
+}
+
+.ride-dialog .header button:hover {
+    background-color: #ffac19;
+}
+
+.ride-dialog .ride-full-details {
+    width: 80%;
+    height: auto;
+    border: 3px solid black;
+    border-radius: 2rem;
+    overflow: auto;
+    padding: 1.5rem;
+    margin: 5% auto;
+}
+
+    .ride-dialog .ride-full-details  .content{
+        display:flex;
+    }
+
+        .ride-dialog .ride-full-details .content .left {
+            width: 50%;
+        } 
+
+        .ride-dialog .ride-full-details .via-points {
+            display: flex;
+        }
+
+            .ride-dialog .ride-full-details .via-points .left {
+                width: 50%;
+            }

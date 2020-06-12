@@ -1,0 +1,50 @@
+﻿.home {
+    height: 80%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+    background-image: url(../Images/img3.png);
+}
+
+    .home .welcome {
+        margin:auto 3%;
+        font-size: 2rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+        text-transform:capitalize;
+    }
+
+    .home .cards {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .home .cards .ride {
+        background-color: #9319ff;
+        width: 20rem;
+        height: 12.5rem;
+        color: white;
+        border-radius: 0.7rem;
+        box-shadow: 0px 2px 6px 8px #ededed;
+        margin:2% 5%;
+    }
+
+    .home .cards .booking {
+        background-color: #ffac19;
+        width: 20rem;
+        height: 12.5rem;
+        box-shadow: 0px 2px 6px 8px #ededed;
+        margin:2% 5%;
+        border-radius: 0.7rem;
+        color: white;
+    }
+
+    .home .cards .cards-element {
+        position: absolute;
+        font-size: 2rem;
+        top: 37%;
+        left: 21%;
+        font-weight: 500;
+        font-family: sans-serif;
+    }

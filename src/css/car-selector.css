@@ -1,0 +1,64 @@
+﻿.car-selectors .car-cards {
+    width: 18.8rem;
+    height: 10rem;
+    text-align-last: center;
+    margin: 2% 4%;
+    padding: 2% 4%;
+    background-color: #ffac19;
+    color: white;
+}
+
+.car-selectors .car-cards .cards{
+    width: 15.8rem;
+    height: 18rem;
+    text-align-last: center;
+    background-color: #ffac19;
+    color: white;
+}
+
+.car-selectors .car-cards .add-car{
+    font-size:5rem;
+}
+
+.car-selectors .user-cars{
+    display: contents;
+}
+
+.confirm-dialog .MuiDialog-paperFullScreen {
+    height: auto;
+    width: auto;
+    border-radius: 1rem;
+}
+
+.car-selectors .header{
+    margin-bottom:1rem;
+    display:grid;
+}
+
+.car-selectors .header .error{
+    color:red;
+    font-size:1rem;
+    margin:auto 1rem;
+}
+
+.car-selectors .header .head {
+    margin: auto 1rem;
+    color: #9319ff;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.user-cars .user-cars .car-cards .car-details {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.car-cards .delete {
+    height: 1.4rem;
+    text-align-last: end;
+}
+
+    .car-cards .delete .button {
+        width: 1.4rem;
+        height: 1.4rem;
+    }

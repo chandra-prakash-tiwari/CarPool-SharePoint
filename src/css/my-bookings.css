@@ -1,0 +1,70 @@
+﻿.my-bookings{
+    margin:1rem 4rem;
+}
+
+.bookings{
+    width:24rem;
+    padding:1rem;
+}
+
+.booking-line{
+    display:flex;
+}
+
+    .booking-line .left{
+        width:50%;
+        text-align:start;
+    }
+
+    .booking-line .right {
+        width: 50%;
+        text-align:start;
+    }
+
+.label {
+    color: #a3a1a3;
+    font-size:11px;
+    font-weight:bolder;
+}
+
+.confirm-dialog .MuiDialog-paperFullScreen {
+    height: auto;
+    width: auto;
+    border-radius: 1rem;
+}
+
+.my-bookings .head-card .header {
+    width: 12rem;
+    height: 2.7rem;
+    background-color: #9319ff;
+    color: white;
+    margin: auto 4rem;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+    text-align-last: center;
+}
+
+.my-bookings .rides .head{
+    display:flex;
+}
+
+.bookings .head {
+    display: flex;
+}
+
+.my-bookings .all-bookings .no-bookings {
+    font-size: 1.5rem;
+    margin: 25% auto;
+}
+
+.my-bookings .booking-line .cancel {
+    border-radius: 2rem;
+    background-color: #ffac19;
+    width: 6rem;
+    height: 2.5rem;
+    border: 0;
+}
+
+.my-bookings .booking-line .cancel:disabled {
+    display:none;
+}

@@ -1,0 +1,143 @@
+﻿.signup {
+    margin:auto;
+    height: 100%;
+    background-color: #ffac19;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url(../Images/imgg2.png);
+}
+
+    .signup .header {
+        color: white;
+        text-align-last: center;
+        padding: 0.65rem;
+    }
+
+.signup .header .head {
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+    .signup .header .header-underline {
+        background-color: white;
+        width: 4.5rem;
+        height: 2.5px;
+        margin: 0.2rem auto;
+    }
+
+.signup .form {
+    width: 80%;
+    margin: 3% 12%;
+    overflow: hidden;
+}
+
+.signup .form input {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.signup .form .input {
+    width: 90%;
+}
+
+.signup .form .input div {
+    background-color: white;
+    height: 3.4rem;
+    border-radius: 0.4rem;
+}
+
+.signup .form .input div::before {
+    content: none;
+}
+
+.signup .form .input div::after {
+    content: none;
+}
+
+.signup .form .input div div {
+    color: #dcd7db;
+}
+
+.signup .form label {
+    color: #dcd7db;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: auto;
+}
+
+.signup .form .submit {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.signup .form .submit span {
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+}
+
+    .signup .form .submit button {
+        border-radius: 2rem;
+        margin: auto;
+        background-color: #9319ff;
+        width: 9rem;
+        height: 3rem;
+        border: 0;
+    }
+
+    .signup .footer {
+    display: flex;
+    margin: 0.5rem auto;
+    width: fit-content;
+    }
+
+        .signup .footer .footer-underline {
+            height: 2.5px;
+            width: 3.4rem;
+            margin: 2% 10%;
+            background: white;
+            margin-left: 10%;
+        }
+
+        .signup .footer .link {
+            margin-left: 0.5rem;
+            display:grid;
+        }
+
+    .signup .link .login {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-size: larger;
+        font-weight: 600;
+        background:none;
+        cursor:pointer;
+    }
+
+        .signup a:hover {
+            text-decoration: none;
+        }
+
+    .signup .footer p {
+        color: white;
+        font-size: larger;
+        font-weight: 200;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .signup .form .input p {
+        color: red;
+        font-size: 1rem;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .signup .form .helper {
+        color: red;
+        font-size: 0.8rem;
+        margin: auto 4px;
+    }
+
+.signup .form .input-box {
+    margin: 0.5rem;
+    display: grid;
+}

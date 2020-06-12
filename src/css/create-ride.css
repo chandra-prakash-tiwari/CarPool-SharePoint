@@ -1,0 +1,89 @@
+﻿.ride{
+    height:auto;
+}
+
+.ride-details {
+    margin: 1% 12%;
+    padding: 5% 7%;
+    background-color: white;
+    display: inline-block;
+    box-shadow: 0px 2px 6px 8px #ededed;
+    border-radius: 1rem;
+    width: 80%;
+    height: 35rem;
+}
+
+.create-ride .ride-details .header .head{
+    display:flex;
+}
+    .create-ride .ride-details .header .head span {
+        margin-left: 15%;
+    }
+
+        .create-ride .ride-details .header .head span span {
+            margin: auto;
+        }
+
+.create-ride .ride-details .input-box{
+    margin:1rem auto;
+}
+
+.create-ride .ride-details label {
+    font-family: 'Open Sans', sans-serif;
+    color: #a7a6a5;
+}
+
+.create-ride .ride-details .helper{
+    font-size:0.8rem;
+    color:red;
+}
+
+.add span{
+    color:blue;
+    font-size:2.2rem
+}
+
+.add{
+    width:3.1rem;
+    height:4.1rem;
+}
+
+.input-via-points{
+    display:contents;
+}
+
+.create-ride .ride-details .chips .label span {
+    font-family: 'Open Sans', sans-serif;
+    color: #a7a6a5;
+    font-weight: 100;
+}
+
+.create-ride .chip {
+    width: 6.3rem;
+    margin: 4px 8px 4px 0px;
+    background-color: white;
+    border: 1px solid #ac4fff;
+    height: 1.7rem;
+}
+
+.create-ride .ride-details .header .head .switch {
+    font-size: 4rem;
+}
+
+.create-ride .ride-details .nextButton {
+    text-align: end;
+    margin: 2rem auto 1.5rem;
+    color: #ac4fff;
+    font-size: 1.2rem;
+    cursor:pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.create-ride .ride-details .nextButton button{
+    font-weight:800;
+}
+
+.create-ride .ride-details .input p{
+    font-size:1rem;
+    color:red;
+}

@@ -1,0 +1,68 @@
+html,body{
+  height: 100%;
+  margin: auto;
+  background-image: url(./Images/logo.png);
+  background-repeat: no-repeat;
+  background-position: 3% 6%;
+  background-size:5%;
+}
+
+#root{
+  height: 100%;
+}
+
+.cointainer {
+    height: 100%;
+}
+
+.image {
+  background-image: url(./Images/img1.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size:100%;
+}
+
+.input{
+  margin: 10px;
+}
+
+.cointainer {
+    overflow:auto;
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+    background-image: url(./Images/img4.png);
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+}
+
+.def {
+    margin-top: 30%;
+}
+    .def div{
+        width:440px;
+        height:220px;
+        display:inline-flex;
+        margin:6px;
+        padding:6px;
+    }
+
+.cointainer .Avatar{
+    padding:3%;
+    clear:both;
+    text-align:right;
+}
+
+.MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 100%;
+}
