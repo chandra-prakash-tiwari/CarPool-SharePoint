@@ -143,13 +143,13 @@ function addNewUser(userData){
 
     var token=localStorage.getItem('token');
     var data1 = {
-        Title:userData.name,
-        Mobile: userData.mobile,
-        Address: userData.address,
-        Email: userData.email,
-        Password: userData.password,
-        UserName: userData.userName,
-        DrivingLicence: userData.drivingLicence
+        Title:btoa(userData.name),
+        Mobile: btoa(userData.mobile),
+        Address: btoa(userData.address),
+        Email: btoa(userData.email),
+        Password: btoa(userData.password),
+        UserName: btoa(userData.userName),
+        DrivingLicence: btoa(userData.drivingLicence)
     }
 
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items";
@@ -179,7 +179,7 @@ function login(loginDetails)
     var token=localStorage.getItem('token');
 
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
-    var query=`$filter=((UserName eq '${loginDetails.userName}') or (Email eq '${loginDetails.userName}'))and(Password eq '${loginDetails.password}')`;
+    var query=`$filter=((UserName eq '${btoa(loginDetails.userName)}') or (Email eq '${btoa(loginDetails.userName)}'))and(Password eq '${btoa(loginDetails.password)}')`;
 
     return fetch(url+query, {
         headers: { 
