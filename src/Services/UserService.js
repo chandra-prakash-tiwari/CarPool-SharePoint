@@ -21,7 +21,7 @@ function logout() {
 function validUserName(userName){
     var token=localStorage.getItem('token');
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
-    var query=`$filter=UserName eq '${userName}'`;
+    var query=`$filter=UserName eq '${btoa(userName)}'`;
 
     return fetch(url+query, {
         headers: { 
@@ -47,7 +47,7 @@ function validUserName(userName){
 function validEmail(email){
     var token=localStorage.getItem('token');
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
-    var query=`$filter=Email eq '${email}'`;
+    var query=`$filter=Email eq '${btoa(email)}'`;
 
     return fetch(url+query, {
         headers: { 
@@ -77,7 +77,7 @@ function sessionExpired() {
 function getUser(email){
     var token=localStorage.getItem('token');
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
-    var query=`$filter=Email eq '${email}'`;
+    var query=`$filter=Email eq '${btoa(email)}'`;
 
     return fetch(url+query, {
         headers: { 
@@ -91,13 +91,13 @@ function getUser(email){
                 if(data.value.length === 1)
                 {
                     var rec={
-                        name:data.value[0].Title,
-                        email:data.value[0].Email,
-                        address:data.value[0].Address,
-                        mobile:data.value[0].Mobile,
-                        userName:data.value[0].UserName,
-                        drivingLicence:data.value[0].DrivingLicence,
-                        id:data.value[0].ID
+                        name:atob(data.value[0].Title),
+                        email:atob(data.value[0].Email),
+                        address:atob(data.value[0].Address),
+                        mobile:atob(data.value[0].Mobile),
+                        userName:atob(data.value[0].UserName),
+                        drivingLicence:atob(data.value[0].DrivingLicence),
+                        id:atob(data.value[0].ID)
                     }
                     return rec;
                 }
@@ -192,13 +192,13 @@ function login(loginDetails)
             const data = await response.json();
             if(data.value.length === 1){
                 var rec={
-                    name:data.value[0].Title,
-                    email:data.value[0].Email,
-                    address:data.value[0].Address,
-                    mobile:data.value[0].Mobile,
-                    userName:data.value[0].UserName,
-                    drivingLicence:data.value[0].DrivingLicence,
-                    id:data.value[0].ID
+                    name:atob(data.value[0].Title),
+                    email:atob(data.value[0].Email),
+                    address:atob(data.value[0].Address),
+                    mobile:atob(data.value[0].Mobile),
+                    userName:atob(data.value[0].UserName),
+                    drivingLicence:atob(data.value[0].DrivingLicence),
+                    id:atob(data.value[0].ID)
                 }
                 localStorage.setItem('currentUser', JSON.stringify(rec));
                 return Promise.resolve("ok");
