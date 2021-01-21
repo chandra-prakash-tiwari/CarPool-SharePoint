@@ -13,13 +13,13 @@ export const BookingService = {
 function addBookings(booking, noofSeats) {
     var bookingSearch = JSON.parse(sessionStorage.getItem('bookingSearch'));
     var data = {
-        RideId: booking.ID,
-        From: bookingSearch.from,
-        To: bookingSearch.to,
-        TravelDate: bookingSearch.date,
-        NoofSeats: noofSeats,
-        Time: booking.Time,
-        BookerId: UserService.currentUser.id
+        RideId: btoa(booking.ID),
+        From: btoa(bookingSearch.from),
+        To: btoa(bookingSearch.to),
+        TravelDate: btoa(bookingSearch.date),
+        NoofSeats: btoa(noofSeats),
+        Time: btoa(booking.Time),
+        BookerId: btoa(UserService.currentUser.id)
     }
 
     var url="https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('Bookings')/items";
