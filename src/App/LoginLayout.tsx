@@ -1,16 +1,18 @@
 ﻿import * as React from "react";
-import { Grid } from "@material-ui/core";
+import { CssBaseline, Grid, Paper } from "@material-ui/core";
 import Login from "../components/Anonymus/Login";
 import Text from "../components/Anonymus/Text";
 
 export default class LoginLayout extends React.Component {
   render() {
     return (
-      <Grid container>
-        <Grid item xs={false} sm={4} md={8} className="page image">
+      <Grid container component="main">
+        <Grid item xs={false} sm={6} md={8} className="page image">
           <Text />
         </Grid>
-        <Login />
+        <Grid item xs={12} sm={6} md={4} component={Paper} elevation={6} square>
+          <Login />
+        </Grid>
       </Grid>
     );
   }
