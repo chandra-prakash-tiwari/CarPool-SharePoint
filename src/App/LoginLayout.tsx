@@ -6,13 +6,12 @@ import Text from '../components/Anonymus/Text'
 export default class LoginLayout extends React.Component{
     render() {
         return (
-            <Grid container>
-                <Grid item xs={false} sm={4} md={8} className='page image'>
-                    <Text/>
-                </Grid>
-                <Grid item xs={12} sm={8} md={4} className='page image'>
-                    <Login />
-                </Grid>
+<Grid container>	    
+                <Grid item xs={false} sm={true} md={8} className='page image'>	               
+                    <Text/>	                   
+                </Grid>	               
+                <Login />	                
+
             </Grid>
             )
     }
