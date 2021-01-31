@@ -1,12 +1,16 @@
 ﻿import * as React from "react";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import UserService from "../../Services/UserService";
 import "../../css/sign-up-form.css";
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import { InputAdornment, Tooltip, ButtonBase } from "@material-ui/core";
+import {
+  Button,
+  InputAdornment,
+  Tooltip,
+  CircularProgress,
+} from "@material-ui/core";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { User } from "../../Classes/DataClasses/User";
 import { SignUpMeta } from "../../Classes/MetaClasses/User";
@@ -17,7 +21,6 @@ import {
   EmailRegex,
   MobileNumberRegex,
   PasswordRegex,
-  DrivingLicenceRegex,
   UserNameAvailability,
 } from "../../Classes/Constraint";
 import { Redirect } from "react-router-dom";
@@ -343,10 +346,20 @@ export default class SignUp extends React.Component<{}, SignUpProps> {
                 {this.state.meta.passwordMatchError}
               </span>
             </div>
-            <div className="submit">
-              <button type="submit" onClick={this.onSubmit}>
-                <span>Submit</span>
-              </button>
+            <div className="submit-root">
+              <div className="submit">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={this.state.meta.onSubmitClick}
+                  onClick={this.onSubmit}
+                >
+                  Submit
+                </Button>
+                {this.state.meta.onSubmitClick && (
+                  <CircularProgress size={24} className="circularProcess" />
+                )}
+              </div>
             </div>
           </form>
           <div className="footer">

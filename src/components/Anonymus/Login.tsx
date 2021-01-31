@@ -1,18 +1,23 @@
 import * as React from "react";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import "../../css/login-form.css";
 import UserService from "../../Services/UserService";
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import { InputAdornment, Tooltip, ButtonBase } from "@material-ui/core";
+import {
+  InputAdornment,
+  CircularProgress,
+  Button,
+  Dialog,
+} from "@material-ui/core";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { LoginRequest } from "../../Classes/DataClasses/User";
 import { LoginMeta } from "../../Classes/MetaClasses/User";
 import { WrongPassword, ServerError } from "../User/Response";
 import { Required } from "../../Classes/Constraint";
 import { Redirect } from "react-router-dom";
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 export class LoginProps {
   credentials: LoginRequest;
@@ -29,6 +34,10 @@ export default class Login extends React.Component<{}, LoginProps> {
     super(props);
     this.state = new LoginProps();
   }
+
+  componentDidMount = () => {
+    UserService.initialStep();
+  };
 
   onChanges = (event: any) => {
     this.setState({
@@ -67,7 +76,7 @@ export default class Login extends React.Component<{}, LoginProps> {
     isValid = isValid && this.isValidPassword(this.state.credentials.password);
     this.setState({
       ...this.state,
-      meta: { ...this.state.meta, displaySpan: "" },
+      meta: { ...this.state.meta, displaySpan: "", onSubmitClick: true },
     });
 
     if (!isValid) {
@@ -87,6 +96,11 @@ export default class Login extends React.Component<{}, LoginProps> {
         }
       });
     }
+
+    this.setState({
+      ...this.state,
+      meta: { ...this.state.meta, onSubmitClick: false },
+    });
   };
 
   onSignUpRedirect = () => {
@@ -169,10 +183,20 @@ export default class Login extends React.Component<{}, LoginProps> {
             </div>
             {this.state.meta.wrongPasswordError ? <WrongPassword /> : ""}
             {this.state.meta.serverError ? <ServerError /> : ""}
-            <div className="submit">
-              <button type="submit" onClick={this.onSubmit}>
-                <span> Submit </span>
-              </button>
+            <div className="submit-root">
+              <div className="submit">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={this.state.meta.onSubmitClick}
+                  onClick={this.onSubmit}
+                >
+                  Submit
+                </Button>
+                {this.state.meta.onSubmitClick && (
+                  <CircularProgress size={24} className="circularProcess" />
+                )}
+              </div>
             </div>
           </form>
           <div className="footer">

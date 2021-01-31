@@ -10,6 +10,8 @@ export const UserService = {
   validUserName,
   getToken,
   getRequestDigest,
+  initialStep,
+  getCookie,
   currentUser: getCurrentUser,
 };
 
@@ -18,7 +20,6 @@ function logout() {
 }
 
 function validUserName(userName) {
-  var token = localStorage.getItem("token");
   var url =
     "https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
   var query = `$filter=UserName eq '${btoa(userName)}'`;
@@ -27,7 +28,7 @@ function validUserName(userName) {
     headers: {
       Accept: "application/json;odata=nometadata",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getCookie("access")}`,
     },
   })
     .then(async (response) => {
@@ -46,7 +47,6 @@ function validUserName(userName) {
 }
 
 function validEmail(email) {
-  var token = localStorage.getItem("token");
   var url =
     "https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
   var query = `$filter=Email eq '${btoa(email)}'`;
@@ -55,7 +55,7 @@ function validEmail(email) {
     headers: {
       Accept: "application/json;odata=nometadata",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getCookie("access")}`,
     },
   })
     .then(async (response) => {
@@ -78,7 +78,6 @@ function sessionExpired() {
 }
 
 function getUser(email) {
-  var token = localStorage.getItem("token");
   var url =
     "https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
   var query = `$filter=Email eq '${btoa(email)}'`;
@@ -87,7 +86,7 @@ function getUser(email) {
     headers: {
       Accept: "application/json;odata=nometadata",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getCookie("access")}`,
     },
   })
     .then(async (response) => {
@@ -114,19 +113,18 @@ function getUser(email) {
 }
 
 async function getRequestDigest() {
-  var token = localStorage.getItem("token");
-
   return fetch(
     "https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/contextinfo",
     {
       method: "POST",
       headers: {
         Accept: "application/json;odata=nometadata",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${getCookie("access")}`,
       },
     }
   ).then(async (res) => {
-    localStorage.setItem("digest", JSON.stringify(await res.json()));
+    var data = await res.json();
+    document.cookie = `digest=${data.FormDigestValue}`;
   });
 }
 
@@ -144,16 +142,14 @@ async function getToken() {
     }
   )
     .then((a) => a.json())
-    .then((a) => localStorage.setItem("token", a.access_token))
-    .catch((e) => console.log(e));
+    .then((a) => (document.cookie = `access='${a.access_token}'`))
+    .catch();
 }
 
 function addNewUser(userData) {
-  getToken();
-  getRequestDigest();
   var digest = localStorage.getItem("digest");
 
-  var token = localStorage.getItem("token");
+  var token = document.cookie;
   var data1 = {
     Title: btoa(userData.name),
     Mobile: btoa(userData.mobile),
@@ -186,10 +182,6 @@ function addNewUser(userData) {
 }
 
 function login(loginDetails) {
-  getToken();
-  getRequestDigest();
-  var token = localStorage.getItem("token");
-
   var url =
     "https://chandraprakashtiwariv.sharepoint.com/sites/carpool/_api/lists/getbytitle('user')/items?";
   var query = `$filter=((UserName eq '${btoa(
@@ -202,7 +194,7 @@ function login(loginDetails) {
     headers: {
       Accept: "application/json;odata=nometadata",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getCookie("access")}`,
     },
   })
     .then(async (response) => {
@@ -233,6 +225,27 @@ function login(loginDetails) {
     .catch((error) => {
       return error;
     });
+}
+
+function initialStep() {
+  getToken();
+  getRequestDigest();
+}
+
+function getCookie(cookiesName) {
+  var name = cookiesName + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length + 1, c.length - 1);
+    }
+  }
+  return "";
 }
 
 export default UserService;

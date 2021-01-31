@@ -354,7 +354,7 @@ export default class CreateRide extends React.Component<{}, RideDetails> {
               {this.state.meta.carNotAvailableError}
             </span>
             <div className="nextButton" onClick={this.onSubmit}>
-              <span>Next</span>
+              <span>Next{">>>"}</span>
             </div>
           </form>
         </Grid>
