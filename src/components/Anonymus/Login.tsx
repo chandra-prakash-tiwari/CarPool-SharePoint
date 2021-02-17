@@ -5,19 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import "../../css/login-form.css";
 import UserService from "../../Services/UserService";
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import {
-  InputAdornment,
-  CircularProgress,
-  Button,
-  Dialog,
-} from "@material-ui/core";
+import { InputAdornment, CircularProgress, Button } from "@material-ui/core";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { LoginRequest } from "../../Classes/DataClasses/User";
 import { LoginMeta } from "../../Classes/MetaClasses/User";
 import { WrongPassword, ServerError } from "../User/Response";
 import { Required } from "../../Classes/Constraint";
 import { Redirect } from "react-router-dom";
-import { Alert, AlertTitle } from "@material-ui/lab";
 
 export class LoginProps {
   credentials: LoginRequest;

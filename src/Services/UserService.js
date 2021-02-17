@@ -122,10 +122,12 @@ async function getRequestDigest() {
         Authorization: `Bearer ${getCookie("access")}`,
       },
     }
-  ).then(async (res) => {
-    var data = await res.json();
-    document.cookie = `digest=${data.FormDigestValue}`;
-  });
+  )
+    .then(async (res) => {
+      var data = await res.json();
+      document.cookie = `digest=${data.FormDigestValue}`;
+    })
+    .catch((error) => console.log(error));
 }
 
 async function getToken() {
@@ -137,13 +139,14 @@ async function getToken() {
         Accept: "application/json;odata=verbose",
         "Content-Type": "application/x-www-form-urlencoded",
       },
-
       body: `grant_type=client_credentials&client_id=766f911b-5b3c-4ea4-a67d-564080155d94@4e847bc8-615a-4c91-a8ca-8cff7106481e&client_secret=UJQhDYryjeR36gTMq2Dkc3zQ39e9CPaPk8xVk9gFPw8=&resource=00000003-0000-0ff1-ce00-000000000000/chandraprakashtiwariv.sharepoint.com@4e847bc8-615a-4c91-a8ca-8cff7106481e`,
     }
   )
-    .then((a) => a.json())
-    .then((a) => (document.cookie = `access='${a.access_token}'`))
-    .catch();
+    .then(async (a) => {
+      var data = await a.json();
+      document.cookie = `access='${data.access_token}'`;
+    })
+    .catch((error) => console.log(error));
 }
 
 function addNewUser(userData) {
