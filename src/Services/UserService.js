@@ -125,6 +125,7 @@ async function getRequestDigest() {
   )
     .then(async (res) => {
       var data = await res.json();
+      console.log(data.FormDigestValue, data);
       document.cookie = `digest=${data.FormDigestValue}`;
     })
     .catch((error) => console.log(error));
@@ -150,8 +151,6 @@ async function getToken() {
 }
 
 function addNewUser(userData) {
-  var digest = localStorage.getItem("digest");
-
   var token = document.cookie;
   var data1 = {
     Title: btoa(userData.name),
@@ -170,9 +169,9 @@ function addNewUser(userData) {
     method: "POST",
     headers: {
       Accept: "application/json;odata=verbose",
-      "x-RequestDigest": digest.FormDigestValue,
+      "x-RequestDigest": `${getCookie("digest")}`,
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getCookie("access")}`,
     },
     body: JSON.stringify(data1),
   }).then(async (r) => {
