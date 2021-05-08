@@ -1,6 +1,7 @@
 {
   "name": "carpool",
   "version": "0.1.0",
+  "homepage":"https://chandra-prakash-tiwari.github.io/CarPool-SharePoint/"
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.1",
